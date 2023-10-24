@@ -40,7 +40,7 @@ html {
 
   .cell {
     width:33%;
-    background-color: #f0f0f0 ;
+    background-color: #f0f0f0;
   }
   
   .details div {
@@ -55,3 +55,6 @@ html {
   .quiz {
     padding:20px
   }
+  /* CHALLENGE */
+  /* ADD STYLES FOR QUIZ QUESTION, ANSWER AND BUTTONS */
+

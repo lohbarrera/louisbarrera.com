@@ -173,15 +173,16 @@
         </div>
       </div>
       <div class="cell">
-        <div class="quiz">
+        <div class="quiz" id="quiz">
           <h2>Quiz</h2>
           <div id="question"></div>
-          <button class="button" onclick="showAnswer();">Reveal answer</button>
+          <!-- #### CHALLENGE: SHOW THE ANSWER WHEN THIS BUTTON IS CLICKED -->
+          <button class="button" onclick="showAnswer()">Reveal answer</button>
           <div id="answer"></div>
-          <button class="button" onclick="initialiseQuiz();">
-            Random question
-          </button>
+          <!-- #### CHALLENGE: SHOW A NEW QUESTION WHEN THIS BUTTON IS CLICKED -->
+          <button class="button"  onclick="initialiseQuiz()">Next question</button>
         </div>
+        <div id="endOfQuiz" style="display:none;">Sorry, no more questions. Click refresh to try again.</div>
       </div>
     </div>
   </body>

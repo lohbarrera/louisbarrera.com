@@ -1,14 +1,32 @@
+// THIS IS WHERE THE QUESTIONS AND ANSWERS ARE DEFINED. THE SYNTAX IS AS FOLLOWS:
+
+// const quiz = [...]
+
+// THE ENTIRE QUIZ IS STORED IN AN ARRAY DEFINED BY THE SQUARE BRACKETS, AND ASSIGNED TO THE VARIABLE NAMED 'quiz'
+
+// {
+//    question: "string",
+//    answer: "string"
+// },
+
+// EACH QUESTION IS THEN AN OBJECT, DEFINED BY {}, WITH 2 PROPERTIES question = "" and answer = ""
+
+// YOU CAN ADD AS MANY QUESTIONS AS YOU LIKE.
+
+// #### CHALLENGE ####
+// #### ADD 2 AT LEAST 2 MORE QUIZ QUESTION AND ANSWERS
+
 const quiz = [
   {
     question:
       "Which club is the most successful in the tournament's history, having won it 13 times?",
-    answer: "Real Madrid"
+    answer: "Real Madrid",
   },
   {
     question:
       "Three managers have won the Champions League (or European Cup) three times, can you name them?",
     answer:
-      "Zinedine Zidane (2016, 2017, 2018, with Real Madrid), Bob Paisley (1977, 1978 and 1981 with Liverpool), and Carlo Ancelotti ( 2003, 2007 with Milan, and 2014 Real Madrid)"
+      "Zinedine Zidane (2016, 2017, 2018, with Real Madrid), Bob Paisley (1977, 1978 and 1981 with Liverpool), and Carlo Ancelotti ( 2003, 2007 with Milan, and 2014 Real Madrid)",
   },
   {
     question:
@@ -18,12 +36,12 @@ const quiz = [
   {
     question:
       "Liverpool beat Spurs 2–0 in the 2019 final in the Wanda Metropolitano, which is the home stadium of which club?",
-    answer: "Atletico Madrid"
+    answer: "Atletico Madrid",
   },
   {
     question:
       "Two players have played in eight finals, Francisco Gento in the 1950s and 60s is one, can you name the more recent other?",
-    answer: "Paolo Maldini (Milan)"
+    answer: "Paolo Maldini (Milan)",
   },
   {
     question:
@@ -37,54 +55,62 @@ const quiz = [
   {
     question:
       "Who holds the record as the oldest player to play in a final when his team lost to Hamburg in 1983?",
-    answer: "Dino Zoff (Juventus - 41 years and 86 days)"
+    answer: "Dino Zoff (Juventus - 41 years and 86 days)",
   },
   {
     question:
       "Liverpool beat Milan in the 2005 final in Istanbul, what was the score at half time?",
     answer:
-      "3–0 to Milan (Liverpool scored 3 goals in six minutes in the second half to draw the game, then won on penalties after extra time)"
+      "3–0 to Milan (Liverpool scored 3 goals in six minutes in the second half to draw the game, then won on penalties after extra time)",
   },
   {
     question:
       "Name the first player to play in the Champions League group stage with seven clubs? (Hint: the clubs include Barcelona and Manchester United)",
-    answer: "Zlatan Ibrahimovic"
+    answer: "Zlatan Ibrahimovic",
   },
   {
     question:
       "The UEFA Champions League anthem is an adaptation of which composer's 1727 anthem 'Zadok the Priest'?",
-    answer: "George Frideric Handel"
+    answer: "George Frideric Handel",
   },
   {
     question:
       "In the 1970s four British clubs played in finals, Liverpool was one, can you name the other three?",
     answer:
-      "Celtic (lost in 1970), Leeds Utd (lost in 1975) and Nottingham Forest (won in 1979)"
+      "Celtic (lost in 1970), Leeds Utd (lost in 1975) and Nottingham Forest (won in 1979)",
   },
   {
     question:
       "Which British football ground was the first to host a European Cup Final?",
     answer:
-      "Hampden Park (glasgow) in 1960 (it also has the record highest attendance at 127,621 )"
+      "Hampden Park (glasgow) in 1960 (it also has the record highest attendance at 127,621 )",
   },
   {
     question:
       "Which player has made the most appearances in the competition? And as of August 2019, which two British players also makes the all-time top 10 appearances list?",
     answer:
-      "Iker Casillas with 177 for Real Madrid and Porto. Ryan Giggs (145) and Paul Scholes (124)."
+      "Iker Casillas with 177 for Real Madrid and Porto. Ryan Giggs (145) and Paul Scholes (124).",
   },
   {
     question:
       "Real Madrid won the first five finals in 1956 to 1960, but which club won the next two?",
-    answer: "Benfica"
+    answer: "Benfica",
+  },
+  {
+    question:
+      "What football player has scored the most goals in Champions league finals?",
+    answer: "Cristiano Ronaldo",
+  },
+  {
+    question: "Which Stadium has hosted the final the most times?",
+    answer: "Wembley",
   },
 ];
 
+const initialQuizLength = quiz.length;
 addEventListener("load", (event) => {
   initialiseQuiz();
 });
-
-
 
 function showDetails(buttonNumber) {
   const infoBoxes = document.getElementsByClassName("info");
@@ -95,15 +121,26 @@ function showDetails(buttonNumber) {
 }
 
 function initialiseQuiz() {
-  const question = quiz[(Math.floor(Math.random() * quiz.length))]
-  document.getElementById("answer").style.display = "none";
-  document.getElementById("question").innerHTML = question.question;
-  document.getElementById("answer").innerHTML = question.answer;
+  if(quiz.length === 0) {
+    endQuiz();
+  }
+  // THIS FUNCTION SELECTS A QUESTION AT RANDOM AND DISPLAYS IT ON THE SCREEN
+  const randomPosition = Math.floor(Math.random() * quiz.length);
+  const question = quiz[randomPosition];
 
+  document.getElementById("question").innerHTML = `<div><strong>Question ${initialQuizLength - quiz.length + 1}</strong></div><div>${question.question}</div>`;
+  document.getElementById("answer").innerHTML = question.answer;
+  document.getElementById("answer").style.display = "none";
+  quiz.splice(randomPosition, 1);
+}
+
+function endQuiz() {
+  document.getElementById("quiz").style.display = "none";
+  document.getElementById("endOfQuiz").style.display = "block";
 
 }
 
 function showAnswer() {
-  document.getElementById("answer").style.display = "";
-}
+ document.getElementById("answer").style.display = "block"
 
+}
