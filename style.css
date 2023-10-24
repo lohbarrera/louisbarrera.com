@@ -1,0 +1,57 @@
+html {
+    height: 100%;
+    width: 100%;
+    font-family: century gothic;
+  }
+  
+  body {
+    margin: 50px 50px;
+  }
+  
+  p {
+    font-size: 12pt;
+  }
+  
+  input {
+    width: 200px;
+    height: 150px;
+  
+    color: white;
+    font-size: 14pt;
+    background-color: #00f;
+    white-space: wrap;
+  }
+  
+  input:hover,
+  input:active,
+  input:focus {
+    background-color: #0cf;
+    color: #000;
+  }
+  
+  .grid {
+    display:flex;
+    justify-content: space-between;
+  }
+  
+  .details {
+    margin: 0 30px;
+  }
+
+  .cell {
+    width:33%;
+    background-color: #f0f0f0 ;
+  }
+  
+  .details div {
+    padding: 20px;
+    font-size: 14pt;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    display: none;
+  }
+
+  .quiz {
+    padding:20px
+  }
